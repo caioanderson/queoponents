@@ -1,0 +1,7 @@
+{
+  "compilerOptions": {},
+  "extends": "@queoponents/ts-config/react.json",
+  "include": [
+    "src"
+  ],
+}
