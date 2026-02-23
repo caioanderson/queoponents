@@ -4,7 +4,10 @@
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
+  "type": "module",
   "scripts": {
+    "style-dictionary-build": "node style-dictionary.config.js",
+    "tokens:sync": "node scripts/sync-zeplin-tokens.js",
     "build": "tsup src/index.ts --format esm,cjs --dts",
     "dev": "tsup src/index.ts --format esm,cjs --dts --watch"
   },
@@ -14,7 +17,12 @@
   "description": "",
   "devDependencies": {
     "@queoponents/ts-config": "*",
+    "style-dictionary": "^5.3.1",
     "tsup": "^8.5.0",
     "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "dotenv": "^17.3.1",
+    "fs": "^0.0.1-security"
   }
 }
