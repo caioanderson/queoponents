@@ -1,0 +1,91 @@
+.colors-grid-wrapper {
+  font-family: Inter, sans-serif !important;
+  color: #111 !important;
+  padding: 1rem !important;
+}
+
+.colors-grid-section {
+  margin-bottom: 4rem !important;
+}
+
+.colors-grid-header {
+  margin-bottom: 2rem !important;
+  border-bottom: 1px solid #e5e7eb !important;
+  padding-bottom: 1rem !important;
+}
+
+.colors-grid-category-title {
+  font-size: 1.875rem !important;
+  font-weight: 700 !important;
+  color: #fff !important;
+  text-transform: capitalize !important;
+  margin: 0 !important;
+}
+
+.colors-grid-category-description {
+  color: #6b7280 !important;
+  margin-top: 0.5rem !important;
+  font-size: 1rem !important;
+}
+
+.colors-grid-groups {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(1fr, 1fr)) !important;
+  gap: 3rem 2rem !important;
+}
+
+.colors-grid-group-title {
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  color: #9ca3af !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.1em !important;
+  margin-bottom: 1rem !important;
+}
+
+.colors-grid-swatch-list {
+  display: flex !important;
+  flex-direction: column !important;
+  border-radius: 0.75rem !important;
+  overflow: hidden !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06) !important;
+}
+
+.colors-grid-swatch {
+  padding: 1rem 1.25rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  transition: transform 0.1s ease !important;
+}
+
+.colors-grid-swatch-info {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.125rem !important;
+}
+
+.colors-grid-swatch-name {
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
+}
+
+.colors-grid-swatch-hex {
+  font-size: 0.75rem !important;
+  opacity: 0.8 !important;
+  font-family: ui-monospace, monospace !important;
+}
+
+.colors-grid-swatch-token {
+  font-size: 0.65rem !important;
+  margin-top: 0.25rem !important;
+  opacity: 0.7 !important;
+  font-family: ui-monospace, monospace !important;
+  font-weight: 700 !important;
+}
+
+.colors-grid-swatch-key {
+  font-size: 0.75rem !important;
+  font-weight: 500 !important;
+  opacity: 0.9 !important;
+}

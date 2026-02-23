@@ -1,13 +1,13 @@
 {
   "name": "@queoponents/tokens",
   "version": "1.0.0",
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "type": "module",
   "scripts": {
     "style-dictionary-build": "node style-dictionary.config.js",
-    "tokens:sync": "node scripts/sync-zeplin-tokens.js",
+    "tokens:sync": "node scripts/sync-zeplin-tokens.js && npm run style-dictionary-build",
     "build": "tsup src/index.ts --format esm,cjs --dts",
     "dev": "tsup src/index.ts --format esm,cjs --dts --watch"
   },

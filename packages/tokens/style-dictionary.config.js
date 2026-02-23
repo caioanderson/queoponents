@@ -84,14 +84,14 @@ StyleDictionary.registerFormat({
       if (typeof val === "object" && val !== null) {
         textStyles[styleName] = {
           fontFamily: val.font?.family || "",
-          fontSize: val.font?.size || 0,
-          fontWeight: Number(val.font?.weight || 400),
-          lineHeight: val.line_height || 0,
+          fontSize: `${val.font?.size || 0}px`,
+          fontWeight: String(val.font?.weight || 400),
+          lineHeight: `${val.line_height || 0}px`,
         };
 
         // Adiciona letterSpacing se existir
         if (val.letter_spacing !== undefined) {
-          textStyles[styleName].letterSpacing = val.letter_spacing;
+          textStyles[styleName].letterSpacing = `${val.letter_spacing}px`;
         }
       }
     });
@@ -109,7 +109,11 @@ StyleDictionary.registerFormat({
 
     dictionary.allTokens.forEach((token) => {
       const finalName = toCamelCase(cleanTokenName(token.name));
-      tokenObject[finalName] = token.value;
+      let value = token.value;
+      if (typeof value === "number") {
+        value = `${value}px`;
+      }
+      tokenObject[finalName] = value;
     });
 
     return `export const ${constName} = ${JSON.stringify(tokenObject, null, 2)};\n`;

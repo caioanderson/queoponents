@@ -1,6 +1,18 @@
 import { createTheme } from "@vanilla-extract/css";
-import { color } from "@queoponents/tokens";
+import {
+  colors,
+  motion,
+  radii,
+  shadows,
+  spacing,
+  textStyles,
+} from "@queoponents/tokens";
 
 export const [themeClass, vars] = createTheme({
-  color,
+  colors,
+  motion,
+  radii,
+  shadows,
+  spacing,
+  textStyles,
 });

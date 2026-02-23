@@ -18,11 +18,11 @@ const buttonStyle = recipe({
   variants: {
     variant: {
       primary: {
-        backgroundColor: vars.color.blue,
+        backgroundColor: vars.colors.palette.systemBlueBase,
         color: "white",
       },
       secondary: {
-        backgroundColor: vars.color.black,
+        // backgroundColor: vars.color.black,
         color: "white",
       },
     },
