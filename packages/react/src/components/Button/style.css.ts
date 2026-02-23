@@ -1,5 +1,5 @@
 import { style } from "@vanilla-extract/css";
-import { vars } from "../../styles/index.css";
+import { theme } from "../../styles/index.css";
 import { recipe } from "@vanilla-extract/recipes";
 
 const baseButtonStyle = style({
@@ -18,11 +18,11 @@ const buttonStyle = recipe({
   variants: {
     variant: {
       primary: {
-        backgroundColor: vars.colors.palette.systemBlueBase,
+        backgroundColor: theme.colors.palette.systemBlueBase,
         color: "white",
       },
       secondary: {
-        // backgroundColor: vars.color.black,
+        backgroundColor: theme.colors.palette.systemBlueGrayDark,
         color: "white",
       },
     },

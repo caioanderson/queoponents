@@ -9,7 +9,6 @@ interface TokensGridProps {
 }
 
 function renderPreview(key: string, values: Record<string, PrimitiveValue>) {
-  // Preview especial para textStyles
   const fontFamily = values.fontFamily as string | undefined
   const fontSize = values.fontSize as string | number | undefined
   const fontWeight = values.fontWeight as string | number | undefined

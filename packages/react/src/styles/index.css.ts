@@ -8,7 +8,7 @@ import {
   textStyles,
 } from "@queoponents/tokens";
 
-export const [themeClass, vars] = createTheme({
+const [themeClass, vars] = createTheme({
   colors,
   motion,
   radii,
@@ -16,3 +16,5 @@ export const [themeClass, vars] = createTheme({
   spacing,
   textStyles,
 });
+
+export { themeClass, vars as theme };
