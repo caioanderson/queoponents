@@ -4,3 +4,4 @@ dist
 .env
 input-zeplin
 ._*
+.DS_Store

@@ -5,11 +5,14 @@
     "packages/*"
   ],
   "scripts": {
-    "clean": "find . -name '._*' -type f -delete",
     "dev": "turbo run dev --parallel",
     "build": "turbo run build"
   },
   "devDependencies": {
     "turbo": "^2.7.4"
+  },
+  "volta": {
+    "node": "22.5.1",
+    "npm": "10.8.2"
   }
 }
