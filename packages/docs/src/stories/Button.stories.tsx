@@ -1,59 +1,100 @@
 import type { StoryObj, Meta } from "@storybook/react-vite";
-import { Button, type ButtonProps } from "@queoponents/react";
-
-type StoryProps = ButtonProps & {
-  buttonText: string;
-}
+import { Button, type ButtonRootProps, type FaClassName } from "@queoponents/react";
 
 export default {
   title: "Components/Button",
-  component: Button,
+  component: Button.Root,
   tags: ["autodocs"],
   globals: {
     background: 'dark',
   },
   args: {
-    children: "Click me!",
     variant: "primary",
+    size: "medium",
     disabled: false,
   },
   argTypes: {
     onClick: { action: "clicked" },
-    disabled: { type: "boolean" },
+    disabled: { control: { type: "boolean" } },
     variant: {
-      options: ["primary", "secondary"],
+      options: ["primary", "secondary", "ghost", "transparent"],
+      control: { type: "select" },
+    },
+    size: {
+      options: ["medium", "small", "tiny"],
       control: { type: "inline-radio" },
     },
+    iconClassName: {
+      control: { type: "text" },
+    },
   },
-} as Meta;
+} as Meta<ButtonRootProps>;
 
-export const Primary: StoryObj<StoryProps> = {
+export const Primary: StoryObj<ButtonRootProps> = {
   args: {
-    buttonText: 'Click me!',
     variant: "primary",
   },
-  render: ({ buttonText, ...args }) => {
-    return <Button {...args}>{buttonText}</Button>
-  }
+  render: (args) => (
+    <Button.Root {...args}>
+      <Button.Text>Primary Button</Button.Text>
+    </Button.Root>
+  ),
 };
 
-export const Secondary: StoryObj<StoryProps> = {
+export const Secondary: StoryObj<ButtonRootProps> = {
   args: {
-    buttonText: 'Click me!',
     variant: "secondary",
   },
-  render: ({ buttonText, ...args }) => {
-    return <Button {...args}>{buttonText}</Button>
-  }
+  render: (args) => (
+    <Button.Root {...args}>
+      <Button.Text>Secondary Button</Button.Text>
+    </Button.Root>
+  ),
 };
 
-export const Disabled: StoryObj<StoryProps> = {
+export const Ghost: StoryObj<ButtonRootProps> = {
   args: {
-    buttonText: 'I am disabled.',
-    variant: "primary",
+    variant: "ghost",
+  },
+  render: (args) => (
+    <Button.Root {...args}>
+      <Button.Text>Ghost Button</Button.Text>
+    </Button.Root>
+  ),
+};
+
+export const Transparent: StoryObj<ButtonRootProps> = {
+  args: {
+    variant: "transparent",
+  },
+  render: (args) => (
+    <Button.Root {...args}>
+      <Button.Text>Transparent Button</Button.Text>
+    </Button.Root>
+  ),
+};
+
+type ButtonWithIconArgs = ButtonRootProps & { iconClassName: FaClassName };
+
+export const WithIcon: StoryObj<ButtonWithIconArgs> = {
+  args: {
+    iconClassName: 'fa-solid fa-arrow-left'
+  },
+  render: ({ iconClassName, ...args }) => (
+    <Button.Root {...args}>
+      <Button.Icon name={iconClassName} />
+      <Button.Text>Back</Button.Text>
+    </Button.Root>
+  ),
+};
+
+export const Disabled: StoryObj<ButtonRootProps> = {
+  args: {
     disabled: true,
   },
-  render: ({ buttonText, ...args }) => {
-    return <Button {...args}>{buttonText}</Button>
-  }
+  render: (args) => (
+    <Button.Root {...args}>
+      <Button.Text>Disabled Button</Button.Text>
+    </Button.Root>
+  ),
 };

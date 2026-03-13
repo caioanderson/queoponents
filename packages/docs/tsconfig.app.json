@@ -13,6 +13,11 @@
     "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": true,
     "moduleDetection": "force",
+    "baseUrl": ".",
+    "paths": {
+      "@queoponents/react": ["../react/src/index.tsx"],
+      "@queoponents/react/*": ["../react/src/*"]
+    },
     "noEmit": true,
     "jsx": "react-jsx",
 

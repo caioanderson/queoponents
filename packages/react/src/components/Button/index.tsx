@@ -1,30 +1,13 @@
-import type { ButtonHTMLAttributes, ComponentProps, ReactNode } from 'react';
-import { withTheme } from '../../provider/ThemeProvider';
-import buttonStyles from './style.css.ts';
+import { ButtonIcon, type ButtonIconProps } from './components/Icon';
+import { ButtonRoot, type ButtonRootProps } from './components/Root';
+import { ButtonText, type ButtonTextProps } from './components/Text';
 
-export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> &
-  ComponentProps<typeof buttonStyles> & {
-    children: ReactNode
-  }
+export const Button = Object.assign(ButtonRoot, {
+  Root: ButtonRoot,
+  Icon: ButtonIcon,
+  Text: ButtonText,
+});
 
-function ButtonComponent({
-  variant,
-  className,
-  children,
-  disabled,
-  ...props
-}: ButtonProps) {
-  return (
-    <button
-      className={`${buttonStyles({ variant, disabled })} ${className || ''}`.trim()}
-      disabled={disabled}
-      {...props}
-    >
-      {children}
-    </button>
-  )
-}
+export type { ButtonIconProps, ButtonRootProps, ButtonTextProps };
 
-export const Button = withTheme(ButtonComponent);
-
-Button.displayName = 'Button'
+Button.displayName = 'Button';

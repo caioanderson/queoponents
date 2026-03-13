@@ -11,5 +11,9 @@ export default defineConfig({
   esbuildOptions(options) {
     options.plugins = options.plugins || [];
     options.plugins.push(vanillaExtractPlugin());
+    options.loader = {
+      ...(options.loader || {}),
+      '.css': 'css',
+    };
   },
 });

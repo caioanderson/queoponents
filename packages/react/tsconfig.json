@@ -1,5 +1,12 @@
 {
-  "compilerOptions": {},
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    }
+  },
   "extends": "@queoponents/ts-config/react.json",
   "include": [
     "src"

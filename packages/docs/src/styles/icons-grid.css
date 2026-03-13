@@ -1,0 +1,147 @@
+.icons-grid-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.icons-grid-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.icons-grid-search {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.icons-grid-search-input {
+  flex: 1;
+  background: #0b1220;
+  border: 1px solid #1f2937;
+  border-radius: 12px;
+  padding: 10px 14px;
+  color: #e5e7eb;
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.icons-grid-search-input::placeholder {
+  color: #64748b;
+}
+
+.icons-grid-search-input:focus {
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 3px rgba(14, 116, 144, 0.2);
+}
+
+.icons-grid-search-count {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  white-space: nowrap;
+}
+
+.icons-grid-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.icons-grid-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.icons-grid-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #e5e7eb;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.icons-grid-subtitle {
+  font-size: 0.8rem;
+  color: #9ca3af;
+  margin: 0;
+}
+
+.icons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 16px;
+}
+
+.icon-card {
+  background: linear-gradient(180deg, #0b0f19 0%, #0f172a 100%);
+  border: 1px solid #1f2937;
+  border-radius: 14px;
+  padding: 16px 12px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+  cursor: pointer;
+  text-align: center;
+  width: 100%;
+}
+
+.icon-card:hover {
+  transform: translateY(-2px);
+  border-color: #38bdf8;
+  box-shadow: 0 10px 30px rgba(14, 116, 144, 0.25);
+}
+
+.icon-card:focus-visible {
+  outline: 2px solid #38bdf8;
+  outline-offset: 2px;
+}
+
+.icon-preview {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  color: #e2e8f0;
+}
+
+.icon-copied {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #38bdf8;
+}
+
+.icon-name {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.icon-class {
+  font-size: 0.65rem;
+  color: #94a3b8;
+  text-align: center;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  word-break: break-word;
+}
+
+@media (max-width: 600px) {
+  .icons-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
+
+  .icon-card {
+    padding: 12px 10px;
+  }
+}

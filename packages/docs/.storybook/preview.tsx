@@ -8,10 +8,7 @@ const preview: Preview = {
     layout: 'centered',
     backgrounds: {
       default: 'dark',
-      values: [
-        { name: 'dark', value: '#121212' },
-        // { name: 'light', value: '#ffffff' },
-      ],
+      values: [{ name: 'dark', value: '#121212' }],
     },
     docs: {
       theme: themes.dark,
@@ -19,7 +16,9 @@ const preview: Preview = {
     options: {
       storySort: {
         order: [
-          'Tokens', ['Getting Started', 'Colors', 'Typography'],
+          'Home',
+          'Tokens',
+          ['Getting Started', 'Colors', 'Typograph', 'Icons'],
         ],
       },
     },

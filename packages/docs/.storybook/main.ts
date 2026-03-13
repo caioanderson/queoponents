@@ -21,6 +21,7 @@ const config: StorybookConfig = {
       ...(config.resolve || {}),
       alias: {
         ...(config.resolve?.alias || {}),
+        "@": resolve(__dirname, "../../react/src"),
         "@queoponents/react": resolve(__dirname, "../../react/src"),
       },
     };
