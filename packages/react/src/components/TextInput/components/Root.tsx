@@ -91,5 +91,6 @@ function TextInputRootComponent({
 }
 
 const TextInputRoot = withTheme(TextInputRootComponent);
+TextInputRoot.displayName = 'TextInput.Root';
 
 export { TextInputRoot, TextInputRootComponent };

@@ -1,0 +1,38 @@
+.typography-table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  font-family: "Inter", sans-serif !important;
+  color: #e5e7eb !important;
+}
+
+.typography-table thead th {
+  padding: 0.9rem 1.25rem !important;
+  text-align: left !important;
+  font-size: 0.75rem !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: #cbd5f5 !important;
+  background: #3b414a !important;
+}
+
+.typography-table tbody td {
+  padding: 0.85rem 1.25rem !important;
+  color: #d1d5db !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+}
+
+.typography-table tbody tr {
+  background: #2f343c !important;
+}
+
+.typography-table tbody tr:nth-child(even) {
+  background: #2b3037 !important;
+}
+
+.typography-table-style {
+  color: #f3f4f6 !important;
+  max-width: 220px !important;
+  text-overflow: ellipsis !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+}

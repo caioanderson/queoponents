@@ -30,27 +30,27 @@ const buttonStyle = recipe({
   variants: {
     variant: {
       primary: {
-        backgroundColor: theme.colors.palette.systemBlueBase,
-        color: theme.colors.text.textPrimary,
+        backgroundColor: theme.colors.palette.blue.base,
+        color: theme.colors.text.primary,
         boxShadow:
           "0px 4px 6px -2px rgba(0, 0, 0, 0.02), 0px 10px 15px -3px rgba(0, 0, 0, 0.04)",
       },
       secondary: {
-        backgroundColor: theme.colors.palette.systemGrayLighter,
-        color: theme.colors.palette.systemBlueBase,
+        backgroundColor: theme.colors.palette.gray.lighter,
+        color: theme.colors.text.negative,
         boxShadow:
           "0px 4px 6px -2px rgba(0, 0, 0, 0.02), 0px 10px 15px -3px rgba(0, 0, 0, 0.04)",
       },
       ghost: {
         backgroundColor: "transparent",
-        color: theme.colors.palette.systemGrayDarker,
+        color: theme.colors.palette.gray.darker,
         ":hover": {
-          backgroundColor: theme.colors.palette.systemGrayLighter,
+          backgroundColor: theme.colors.palette.gray.lighter,
         },
       },
       transparent: {
         backgroundColor: "transparent",
-        color: theme.colors.text.textNegative,
+        color: theme.colors.text.negative,
       },
     },
     size: {

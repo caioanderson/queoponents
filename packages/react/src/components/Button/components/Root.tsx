@@ -37,4 +37,6 @@ function ButtonRootComponent({
 
 const ButtonRoot = withTheme(ButtonRootComponent);
 
+ButtonRoot.displayName = 'Button.Root'
+
 export { ButtonRoot, ButtonRootComponent };

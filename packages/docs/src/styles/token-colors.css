@@ -4,6 +4,37 @@
   padding: 1rem !important;
 }
 
+.colors-grid-search {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.5rem !important;
+  margin-bottom: 2rem !important;
+}
+
+.colors-grid-search label {
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
+  color: #9ca3af !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+}
+
+.colors-grid-search input {
+  border: 1px solid #e5e7eb !important;
+  border-radius: 999px !important;
+  padding: 0.65rem 1rem !important;
+  font-size: 0.95rem !important;
+  font-family: Inter, sans-serif !important;
+  background: #fff !important;
+  color: #111 !important;
+  outline: none !important;
+}
+
+.colors-grid-search input:focus {
+  border-color: #94a3b8 !important;
+  box-shadow: 0 0 0 3px rgba(148, 163, 184, 0.25) !important;
+}
+
 .colors-grid-section {
   margin-bottom: 4rem !important;
 }
@@ -62,7 +93,7 @@
 .colors-grid-swatch-info {
   display: flex !important;
   flex-direction: column !important;
-  gap: 0.125rem !important;
+  gap: 0.5rem !important;
 }
 
 .colors-grid-swatch-name {
@@ -71,21 +102,20 @@
 }
 
 .colors-grid-swatch-hex {
-  font-size: 0.75rem !important;
-  opacity: 0.8 !important;
+  font-size: 0.7rem !important;
+  opacity: 0.9 !important;
   font-family: ui-monospace, monospace !important;
 }
 
 .colors-grid-swatch-token {
-  font-size: 0.65rem !important;
-  margin-top: 0.25rem !important;
-  opacity: 0.7 !important;
+  font-size: 0.7rem !important;
+  opacity: 0.9 !important;
   font-family: ui-monospace, monospace !important;
   font-weight: 700 !important;
 }
 
 .colors-grid-swatch-key {
-  font-size: 0.75rem !important;
-  font-weight: 500 !important;
+  font-size: 0.8rem !important;
+  font-weight: 700 !important;
   opacity: 0.9 !important;
 }

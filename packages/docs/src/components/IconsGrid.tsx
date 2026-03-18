@@ -1,6 +1,7 @@
 import { Icon, faClassNames, type FaClassName } from '@queoponents/react';
 import { useMemo, useRef, useState } from 'react';
 import '../styles/icons-grid.css';
+import { colors } from '@queoponents/tokens';
 
 type IconGroup = {
   prefix: string;
@@ -97,7 +98,7 @@ export function IconsGrid() {
                   {copied === icon.className ? (
                     <span className="icon-copied">Copied</span>
                   ) : (
-                    <Icon name={icon.className} aria-hidden="true" />
+                    <Icon name={icon.className} color={colors.surface.accent} aria-hidden="true" />
                   )}
                 </div>
                 <div className="icon-name">{icon.name}</div>

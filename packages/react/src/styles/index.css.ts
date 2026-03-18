@@ -5,16 +5,23 @@ import {
   radii,
   shadows,
   spacing,
-  textStyles,
+  text,
 } from "@queoponents/tokens";
 
-const [themeClass, vars] = createTheme({
+const themeText = {
+  ...text,
+  weights: Object.fromEntries(
+    Object.entries(text.weights).map(([key, value]) => [key, String(value)]),
+  ),
+};
+
+const [themeClass, theme] = createTheme({
   colors,
   motion,
   radii,
   shadows,
   spacing,
-  textStyles,
+  text: themeText,
 });
 
-export { themeClass, vars as theme };
+export { themeClass, theme };

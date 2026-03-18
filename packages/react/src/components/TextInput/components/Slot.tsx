@@ -3,22 +3,18 @@ import { slotStyle } from '../styles/style.css.ts';
 import { useTextInputContext } from '../context';
 
 export interface TextInputSlotProps extends HTMLAttributes<HTMLSpanElement> {
-  animated?: boolean;
 }
 
-function TextInputSlot({ className, animated = true, ...props }: TextInputSlotProps) {
+function TextInputSlot({ className, style, ...props }: TextInputSlotProps) {
   const {
     inputRef,
     setHasLeftSlot,
     setHasStaticSlot,
     setHasStaticLeftSlot,
     setHasStaticRightSlot,
-    isActive,
-    hasLabel,
   } = useTextInputContext();
   const slotRef = useRef<HTMLSpanElement>(null);
   const [side, setSide] = useState<'left' | 'right'>('left');
-  const [isFloating, setIsFloating] = useState(false);
 
   useLayoutEffect(() => {
     const input = inputRef.current;
@@ -30,8 +26,6 @@ function TextInputSlot({ className, animated = true, ...props }: TextInputSlotPr
     const nextSide = isBefore ? 'left' : 'right';
     setSide(nextSide);
 
-    const parentIsControl = slot.parentElement?.dataset?.textinputControl === 'true';
-    setIsFloating(!parentIsControl);
   }, [inputRef]);
 
   useEffect(() => {
@@ -40,53 +34,31 @@ function TextInputSlot({ className, animated = true, ...props }: TextInputSlotPr
   }, [side, setHasLeftSlot]);
 
   useEffect(() => {
-    if (!animated) {
-      setHasStaticSlot(true);
-      if (side === 'left') {
-        setHasStaticLeftSlot(true);
-      } else {
-        setHasStaticRightSlot(true);
-      }
-      return () => {
-        setHasStaticSlot(false);
-        if (side === 'left') {
-          setHasStaticLeftSlot(false);
-        } else {
-          setHasStaticRightSlot(false);
-        }
-      };
+    setHasStaticSlot(true);
+    if (side === 'left') {
+      setHasStaticLeftSlot(true);
+    } else {
+      setHasStaticRightSlot(true);
     }
-    if (isFloating) {
-      setHasStaticSlot(true);
+    return () => {
+      setHasStaticSlot(false);
       if (side === 'left') {
-        setHasStaticLeftSlot(true);
+        setHasStaticLeftSlot(false);
       } else {
-        setHasStaticRightSlot(true);
+        setHasStaticRightSlot(false);
       }
-      return () => {
-        setHasStaticSlot(false);
-        if (side === 'left') {
-          setHasStaticLeftSlot(false);
-        } else {
-          setHasStaticRightSlot(false);
-        }
-      };
-    }
-    setHasStaticSlot(false);
-    setHasStaticLeftSlot(false);
-    setHasStaticRightSlot(false);
-    return undefined;
-  }, [animated, isFloating, side, setHasStaticSlot, setHasStaticLeftSlot, setHasStaticRightSlot]);
+    };
+  }, [side, setHasStaticSlot, setHasStaticLeftSlot, setHasStaticRightSlot]);
 
   return (
     <span
       ref={slotRef}
-      data-side={side}
-      data-static={!animated}
-      data-floating={isFloating}
-      data-animated={animated}
-      data-active={isActive && hasLabel}
       className={`${slotStyle()} ${className || ''}`.trim()}
+      style={{
+        ...style,
+        left: side === 'left' ? 18 : undefined,
+        right: side === 'right' ? 18 : undefined,
+      }}
       {...props}
     />
   );

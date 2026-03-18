@@ -21,11 +21,16 @@ export const labelStyle = recipe({
     fontFamily: "Roboto, sans-serif",
     fontWeight: 400,
     lineHeight: "16px",
-    color: theme.colors.palette.systemGrayBase,
+    color: theme.colors.palette.gray.base,
     position: "absolute",
     left: 18,
+    right: 18,
     transition: "all 0.2s ease-in-out",
     pointerEvents: "none",
+    zIndex: 1,
+    whiteSpace: "nowrap",
+    overflow: "hidden",
+    textOverflow: "ellipsis",
   },
   variants: {
     active: {
@@ -40,7 +45,7 @@ export const labelStyle = recipe({
     },
     hasLeftSlot: {
       true: {
-        left: 18,
+        left: 44,
       },
       false: {
         left: 18,
@@ -65,6 +70,8 @@ export const inputStyle = recipe({
     outline: "none",
     flex: 1,
     order: 0,
+    zIndex: 1,
+    transition: "transform 0.2s ease-in-out",
   },
   variants: {
     hasStaticLeftSlot: {
@@ -87,26 +94,29 @@ export const inputStyle = recipe({
             transition: "color 0.2s",
           },
           "&:focus::placeholder": {
-            color: theme.colors.palette.systemGrayLight,
+            color: theme.colors.palette.gray.light,
           },
         },
       },
       false: {
         marginTop: 0,
         height: "100%",
+        transition: "none",
         selectors: {
           "&::placeholder": {
-            color: theme.colors.palette.systemGrayLight,
+            color: theme.colors.palette.gray.light,
           },
         },
       },
     },
     isActive: {
       true: {
-        color: theme.colors.text.textNegative,
+        color: theme.colors.text.negative,
+        transform: "translateY(12px)",
       },
       false: {
-        color: theme.colors.text.textSecondary,
+        color: theme.colors.text.secondary,
+        transform: "translateY(0)",
       },
     },
     disabled: {
@@ -115,6 +125,17 @@ export const inputStyle = recipe({
       },
     },
   },
+  compoundVariants: [
+    {
+      variants: {
+        hasLabel: false,
+        isActive: true,
+      },
+      style: {
+        transform: "translateY(0)",
+      },
+    },
+  ],
   defaultVariants: {
     hasLabel: true,
     disabled: false,
@@ -140,16 +161,6 @@ export const controlStyle = recipe({
         transition: "none",
       },
     },
-    hasStaticLeftSlot: {
-      true: {
-        paddingLeft: 28,
-      },
-    },
-    hasStaticRightSlot: {
-      true: {
-        paddingRight: 28,
-      },
-    },
     active: {
       true: {},
       false: {
@@ -165,23 +176,10 @@ export const controlStyle = recipe({
       },
     },
   },
-  compoundVariants: [
-    {
-      variants: {
-        active: true,
-        hasLabel: true,
-      },
-      style: {
-        marginTop: 22,
-      },
-    },
-  ],
   defaultVariants: {
     active: false,
     hasLabel: true,
     animate: true,
-    hasStaticLeftSlot: false,
-    hasStaticRightSlot: false,
   },
 });
 
@@ -190,25 +188,13 @@ export const slotStyle = recipe({
     display: "inline-flex",
     alignItems: "center",
     justifyContent: "center",
-    color: theme.colors.palette.systemGrayBase,
+    color: theme.colors.palette.gray.base,
     minWidth: 20,
     minHeight: 20,
-    selectors: {
-      '&[data-floating=\"true\"]': {
-        position: "absolute",
-        top: "50%",
-        transform: "translateY(-50%)",
-      },
-      '&[data-floating=\"true\"][data-side=\"left\"]': {
-        left: 18,
-      },
-      '&[data-floating=\"true\"][data-side=\"right\"]': {
-        right: 18,
-      },
-      '&[data-floating=\"true\"][data-animated=\"true\"][data-active=\"true\"]': {
-        transform: "translateY(calc(-50% + 22px))",
-      },
-    },
+    position: "absolute",
+    top: "50%",
+    transform: "translateY(-50%)",
+    zIndex: 2,
   },
 });
 

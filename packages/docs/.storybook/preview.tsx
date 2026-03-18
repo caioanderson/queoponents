@@ -19,6 +19,8 @@ const preview: Preview = {
           'Home',
           'Tokens',
           ['Getting Started', 'Colors', 'Typograph', 'Icons'],
+          'Surfaces',
+          ['Box'],
         ],
       },
     },

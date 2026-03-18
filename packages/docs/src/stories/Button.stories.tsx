@@ -1,12 +1,28 @@
 import type { StoryObj, Meta } from "@storybook/react-vite";
-import { Button, type ButtonRootProps, type FaClassName } from "@queoponents/react";
+import { Button, faClassNames, Text, type ButtonRootProps, type FaClassName } from "@queoponents/react";
+import { colors } from "@queoponents/tokens";
 
 export default {
   title: "Components/Button",
   component: Button.Root,
   tags: ["autodocs"],
   globals: {
-    background: 'dark',
+    background: "dark",
+  },
+  parameters: {
+    docs: {
+      source: {
+        transform: (code: string) => {
+          return code
+            .replace(new RegExp('<Button(\\s|>)', 'g'), '<Button.Root$1')
+            .replace(new RegExp('</Button>', 'g'), '</Button.Root>')
+            .replace(new RegExp('<ButtonText', 'g'), '<Button.Text')
+            .replace(new RegExp('</ButtonText>', 'g'), '</Button.Text>')
+            .replace(new RegExp('<ButtonIcon', 'g'), '<Button.Icon')
+            .replace(new RegExp('</ButtonIcon>', 'g'), '</Button.Icon>')
+        },
+      },
+    },
   },
   args: {
     variant: "primary",
@@ -24,77 +40,89 @@ export default {
       options: ["medium", "small", "tiny"],
       control: { type: "inline-radio" },
     },
-    iconClassName: {
-      control: { type: "text" },
+    customText: {
+      control: { type: 'text' }
     },
   },
 } as Meta<ButtonRootProps>;
 
-export const Primary: StoryObj<ButtonRootProps> = {
+export const Primary: StoryObj<ButtonRootProps & { customText: string }> = {
   args: {
     variant: "primary",
+    customText: 'Primary Button'
   },
-  render: (args) => (
+  render: ({ customText, ...args }) => (
     <Button.Root {...args}>
-      <Button.Text>Primary Button</Button.Text>
+      <Button.Text value={customText} />
     </Button.Root>
   ),
 };
 
-export const Secondary: StoryObj<ButtonRootProps> = {
+export const Secondary: StoryObj<ButtonRootProps & { customText: string }> = {
   args: {
     variant: "secondary",
+    customText: 'Secondary Button'
   },
-  render: (args) => (
+  render: ({ customText, ...args }) => (
     <Button.Root {...args}>
-      <Button.Text>Secondary Button</Button.Text>
+      <Button.Text value={customText} />
     </Button.Root>
   ),
 };
 
-export const Ghost: StoryObj<ButtonRootProps> = {
+export const Ghost: StoryObj<ButtonRootProps & { customText: string }> = {
   args: {
     variant: "ghost",
+    customText: 'Ghost Button'
   },
-  render: (args) => (
+  render: ({ customText, ...args }) => (
     <Button.Root {...args}>
-      <Button.Text>Ghost Button</Button.Text>
+      <Button.Text value={customText} />
     </Button.Root>
   ),
 };
 
-export const Transparent: StoryObj<ButtonRootProps> = {
+export const Transparent: StoryObj<ButtonRootProps & { customText: string }> = {
   args: {
     variant: "transparent",
+    customText: 'Transparent Button'
   },
-  render: (args) => (
+  render: ({ customText, ...args }) => (
     <Button.Root {...args}>
-      <Button.Text>Transparent Button</Button.Text>
+      <Button.Text value={customText} />
     </Button.Root>
   ),
 };
 
-type ButtonWithIconArgs = ButtonRootProps & { iconClassName: FaClassName };
+type ButtonWithIconArgs = ButtonRootProps & { customText: string, iconName: FaClassName };
 
 export const WithIcon: StoryObj<ButtonWithIconArgs> = {
   args: {
-    iconClassName: 'fa-solid fa-arrow-left'
+    iconName: 'fa-solid fa-arrow-left',
+    customText: 'Back'
   },
-  render: ({ iconClassName, ...args }) => (
+  argTypes: {
+    iconName: {
+      options: [...faClassNames],
+      control: { type: "select" },
+    }
+  },
+  render: ({ customText, iconName, ...args }) => (
     <Button.Root {...args}>
-      <Button.Icon name={iconClassName} />
-      <Button.Text>Back</Button.Text>
+      <Button.Icon name={iconName} color={colors.surface.accent} />
+      <Button.Text value={customText} />
     </Button.Root>
   ),
 };
 
-export const Disabled: StoryObj<ButtonRootProps> = {
+export const Disabled: StoryObj<ButtonRootProps & { customText: string }> = {
   args: {
     disabled: true,
+    customText: 'Disabled Button',
   },
-  render: (args) => (
+  render: ({ customText, ...args }) => (
     <Button.Root {...args}>
-      <Button.Text>Disabled Button</Button.Text>
+      <Button.Text value={customText} />
     </Button.Root>
   ),
 };

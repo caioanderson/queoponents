@@ -5,10 +5,10 @@ import { useTextInputContext } from '../context';
 export interface TextInputControlProps extends HTMLAttributes<HTMLDivElement> { }
 
 function TextInputControl({ children, className, ...props }: TextInputControlProps) {
-  const { hasLabel, isActive, hasStaticSlot, hasStaticLeftSlot, hasStaticRightSlot } = useTextInputContext();
+  const { hasLabel, isActive, hasStaticSlot } = useTextInputContext();
   return (
     <div
-      className={`${controlStyle({ hasLabel, active: isActive, animate: !hasStaticSlot, hasStaticLeftSlot, hasStaticRightSlot })} ${className || ''}`.trim()}
+      className={`${controlStyle({ hasLabel, active: isActive, animate: !hasStaticSlot })} ${className || ''}`.trim()}
       data-textinput-control="true"
       {...props}
     >

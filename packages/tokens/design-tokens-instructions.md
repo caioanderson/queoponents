@@ -51,6 +51,13 @@ Cada arquivo representa um **domínio visual**
 Tokens de cor devem ser **semânticos**, nunca descritivos do arquivo de
 origem.
 
+### Estrutura obrigatória
+
+- `colors.text` deve remover o prefixo `text` das chaves (ex: `textPrimary` → `primary`).
+- `colors.palette` é a System Palette e deve agrupar por família de cor (`blue`, `blueGray`, `deepPurple`, etc.) com níveis `lighter`, `light`, `base`, `dark`, `darker`.
+- `colors.tailwind` deve agrupar por família de cor (`blue`, `gray`, `amber`, etc.) com níveis numéricos (`50`, `100`, `200`, ...).
+- `colors.theme` deve ser dividido em `info`, `state` e `text`.
+
 ### ❌ NÃO PERMITIDO
 
     colors-border-colors-success-light-mode
@@ -68,10 +75,59 @@ origem.
 ## Exemplo de saída esperada
 
 ```ts
-export const borderColors = {
-  success: "rgb(110, 231, 183)",
-  warning: "rgb(253, 224, 71)",
-  danger: "rgb(252, 165, 165)",
+export const colors = {
+  borders: {
+    success: "rgb(110, 231, 183)",
+    warning: "rgb(253, 224, 71)",
+    danger: "rgb(252, 165, 165)",
+  },
+  surface: {
+    level0: "rgb(10, 10, 10)",
+    level1: "rgb(38, 38, 38)",
+  },
+  text: {
+    accent: "rgb(147, 197, 253)",
+    primary: "rgb(250, 250, 250)",
+    secondary: "rgb(212, 212, 212)",
+    disabled: "rgb(212, 212, 212)",
+    negative: "rgb(23, 23, 23)",
+  },
+  palette: {
+    blue: {
+      lighter: "rgb(239, 246, 255)",
+      light: "rgb(147, 197, 253)",
+      base: "rgb(11, 117, 255)",
+      dark: "rgb(0, 84, 197)",
+      darker: "rgb(30, 58, 138)",
+    },
+    blueGray: {
+      lighter: "rgb(248, 250, 252)",
+      light: "rgb(203, 213, 225)",
+      base: "rgb(100, 116, 139)",
+      dark: "rgb(51, 65, 85)",
+      darker: "rgb(15, 23, 42)",
+    },
+  },
+  tailwind: {
+    blue: {
+      50: "rgb(239, 246, 255)",
+      100: "rgb(219, 234, 254)",
+      200: "rgb(191, 219, 254)",
+    },
+  },
+  theme: {
+    info: {
+      danger: "rgb(239, 68, 68)",
+      warning: "rgb(253, 224, 71)",
+      success: "rgb(134, 239, 172)",
+    },
+    state: {
+      active: "rgb(11, 117, 255)",
+      hover: "rgb(147, 197, 253)",
+      disabled: "rgb(115, 115, 115)",
+    },
+    text: {},
+  },
 };
 ```
 
